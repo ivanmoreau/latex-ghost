@@ -4,18 +4,36 @@
     <div class="gh-container">
 
         {{#author}}
-        <header class="gh-page-head">
+        <br><br>
+        {{#if cover_image}}
+        <div class="cover-title-container">
+            <div class="cover-title" >
+                <header class="gh-header gh-canvas gh-title">
+                        {{#if profile_image}}
+                            <img class="gh-author-image" src="{{profile_image}}" alt="{{name}}" />
+                        {{/if}}
+                        <h1>{{name}}</h1>
+                </header>
+                <div class="black-cover"></div>
+                <img class="gh-page-image" src="{{cover_image}}" alt="{{name}}" />
+            </div>
+        </div>
+        {{else}}
+            <header class="gh-header gh-canvas gh-title">
             {{#if profile_image}}
                 <img class="gh-author-image" src="{{profile_image}}" alt="{{name}}" />
             {{/if}}
-
             <h1>{{name}}</h1>
-            {{#if bio}}
-                <p>{{bio}}</p>
-            {{/if}}
+        </header>
+        {{/if}}
 
-            <div class="gh-author-meta">
-                <div class="gh-author-links">
+        
+        <div class="abstract">
+            <h2>Abstract</h2>
+            {{#if bio}}
+            <p>{{bio}}</p>
+            {{/if}}
+            <div class="gh-author-links" style="text-align-last: center;">
                     {{#if website}}
                         <a href="{{website}}" target="_blank" rel="noopener">Website</a>
                     {{/if}}
@@ -25,16 +43,13 @@
                     {{#if facebook}}
                         <a href="{{facebook_url}}" target="_blank" rel="noopener">Facebook</a>
                     {{/if}}
-                </div>
             </div>
+        </div>
 
-            {{#if cover_image}}
-                <img class="gh-page-image" src="{{cover_image}}" alt="{{name}}" />
-            {{/if}}
-        </header>
         {{/author}}
 
         <div class="gh-postfeed">
+        <h2>Posts</h2>
         {{#foreach posts}}
 
             {{> "card"}} {{!-- partials/card.hbs --}}

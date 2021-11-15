@@ -1,238 +1,344 @@
-/*
 
-This is a development CSS file which is compiled to a minified
-production stylesheet in assets/built/screen.css using: gulp dev
-
-*/
-
-/* Lib - Local component imports
-/* ---------------------------------------------------------- */
-
-/* Base components */
-@import "vars.css";
-@import "components/global.css";
-@import "components/forms.css";
-@import "components/buttons.css";
-
-/* Ghost components */
-@import "ghost/header.css";
-@import "ghost/content.css";
-@import "ghost/readmore.css";
-@import "ghost/members.css";
-@import "ghost/errors.css";
-@import "ghost/footer.css";
-@import "ghost/badge.css";
-
-
-
-/* Main - Your styles here! Edit below
-/* ---------------------------------------------------------- */
-
-html,
-.gh-viewport {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background: #fff;
+:root {
+    --colour-white: hsl(210, 20%, 98%);
+    --colour-black: hsl(0, 5%, 10%);
 }
 
-.gh-main {
-    flex: 1 0 auto;
-    display: flex;
-    flex-direction: column;
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --colour-background: rgb(29,29,38);
+        --colour-text: var(--colour-white);
+    }
+}
+  
+  /* variable light */
+@media (prefers-color-scheme: light) {
+    :root {
+        --colour-background: var(--colour-white);
+        --colour-text: var(--colour-black);
+    }
 }
 
-.gh-page {
-    padding: 0 4vmin;
+
+/* Logo */
+.gh-head-logo, a:visited.gh-head-logo {
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: var(--colour-text);
 }
 
-.gh-article {
-    padding: 8vmin 0;
-}
-
-.gh-postfeed {
-    padding: 8vmin 0;
-}
-
-.gh-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.gh-head-actions a {
-    display: inline-flex;
-    align-items: center;
+/* Ghost navbar */
+.nav {
+    list-style-type: none;
     margin: 0;
-    padding: 10px;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
 }
 
-.gh-head-actions a svg {
-    height: 1.8rem;
-    fill: currentcolor;
+.nav li {
+    display: inline;
+    text-align: center;
 }
 
-.gh-head-actions a:first-child svg {
-    margin-left: 20px;
-}
-
-.gh-head-actions a:last-child svg {
-    height: 2rem;
-}
-
-/* Index
-/* ---------------------------------------------------------- */
-
-.gh-card:not(:first-child) {
-    margin: 8vmin auto 0;
-}
-
-.gh-card-link {
+/* Cards */
+.gh-card {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.gh-card-image {
-    width: 100%;
-    max-height: 700px;
-    object-fit: cover;
-    margin-bottom: 4vmin;
-}
-
-.gh-card-meta {
-    display: block;
-    margin: 0 0 1rem;
-    font-size: 1.4rem;
-    line-height: 1.2em;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    opacity: 0.8;
+.gh-card-title {
+    margin-top: 0;
+    
 }
 
 .gh-card-content {
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.6rem;
+    flex: 2;
+    margin-bottom: 3rem;
 }
 
-.gh-card-content p {
-    margin: 1.2rem 0;
-    padding: 0 6vmin;
-}
-
-.gh-card-content > strong {
-    display: inline-block;
-    padding: 1px 0;
-    font-weight: 500;
-    box-shadow: 0 -1px 0 0 inset currentColor;
-    opacity: 0.5;
-}
-
-
-/* Page
-/* ---------------------------------------------------------- */
-
-.gh-page-head {
-    margin: 0 auto;
-    padding: 8vmin 0 4vmin;
-    text-align: center;
-}
-
-.gh-page-image {
-    margin: 4vmin 0 0 0;
-}
-
-.gh-page-head > p {
-    max-width: 720px;
-    margin: 0.3em auto 0;
-    padding: 0 6vmin;
-    font-size: 1.3em;
-    line-height: 1.4em;
-    opacity: 0.5;
-}
-
-@media (max-width: 700px) {
-    .gh-page-head > p {
-        font-size: 1.6rem;
-    }
-}
-
-
-/* Post
-/* ---------------------------------------------------------- */
-
-.gh-header {
-    padding: 0 0 8vmin 0;
-    text-align: center;
-}
-
-.gh-post-meta {
-    display: block;
-    margin: 0 0 1rem;
-    font-size: 1.4rem;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
-
-.gh-excerpt {
-    margin: 1rem 0 0 0;
-}
-
-.gh-feature-image {
-    grid-column: wide-start / wide-end;
-    width: 100%;
-    margin: 8vmin 0 0;
-}
-
-.gh-post-footer {
-    margin: 2rem 0;
-}
-
-
-/* Author Archive
-/* ---------------------------------------------------------- */
-
-.gh-author-image {
-    height: 12vmin;
-    width: 12vmin;
-    margin: 0 auto 1.5em;
-    border-radius: 100%;
-    overflow: hidden;
+img.gh-card-image {
+    flex-basis: 250px;
     object-fit: cover;
+    height: 10rem;
+    width: 100%;
 }
 
-.gh-author-meta {
-    margin: 2vmin 0 0 0;
-    font-size: 1.2em;
+.gh-card-link {
+    text-decoration: none
 }
 
-.gh-author-links {
+article.gh-article.post {
+    margin-top: 6rem;
+}
+
+.author p {
+    text-decoration: none;
+}
+
+
+
+
+
+
+figure.kg-card.kg-image-card figcaption, figure.kg-card.kg-gallery-card figcaption {
+    padding-left: 2rem;
+    margin-top: 1rem;
+    text-align-last: end;
+}
+
+
+/* Post Images */
+figure.kg-card.kg-gallery-card.kg-width-wide .kg-gallery-row {
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
 }
 
-.gh-author-links a {
-    position: relative;
-    display: inline-flex;
+figure.kg-card.kg-gallery-card.kg-width-wide .kg-gallery-row .kg-gallery-image:not(:first-of-type) {
+    margin: 0 0 0 .375em;
+}
+
+figure.kg-card.kg-gallery-card.kg-width-wide .kg-gallery-row .kg-gallery-image:first-of-type {
+    margin: 0 .375em 0 0;
+}
+
+figure.kg-card.kg-gallery-card.kg-width-wide .kg-gallery-row .kg-gallery-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/*
+
+figure.kg-card.kg-gallery-card.kg-width-wide {
+    margin: 3rem 0;
+}
+
+figure.kg-card.kg-image-card {
+    margin: 3rem 0px;
+}
+
+p~figure.kg-card.kg-gallery-card {
+    margin: 3rem 0 1rem;
+}
+figure.kg-card.kg-image-card + figure.kg-card.kg-gallery-card {
+    margin: 1rem 0 3rem 0;
+}
+figure.kg-card.kg-gallery-card + figure.kg-card.kg-image-card {
+    margin: 1rem 0;
+}
+
+figure.kg-card.kg-image-card {
+    margin: 1rem 0;
+}
+*/
+
+/* Youtube */
+figure.kg-card.kg-embed-card iframe {
+    width: 100%;
+    max-width: 80ch;
+    height: calc(((100vw*9)/16)*.9);
+    max-height: calc((80ch*8.5)/16);
+}
+
+figure.kg-card.kg-embed-card {
+    margin: 3rem 0;
+}
+
+/* All figure */
+figure + :not(figure), :not(figure) + figure {
+    margin: 3rem 0 0 0;
+}
+
+figure + figure {
+    margin: 1rem 0 0 0;
+}
+
+
+/* Bookmark Cards */
+
+figure.kg-card.kg-bookmark-card a.kg-bookmark-container {
+    text-decoration: none;
+    display: flex;
+}
+
+figure.kg-card.kg-bookmark-card a.kg-bookmark-container .kg-bookmark-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+figure.kg-card.kg-bookmark-card a.kg-bookmark-container .kg-bookmark-content .kg-bookmark-title {
+    font-size: 1rem;
+    line-height: 1.4em;
+    font-weight: 600;
+    color: var(--colour-text);
+}
+
+figure.kg-card.kg-bookmark-card a.kg-bookmark-container .kg-bookmark-content .kg-bookmark-description {
+    display: -webkit-box;
+    font-size: 1rem;
+    line-height: 1.5em;
+    margin-top: 3px;
+    color: #626d79;
+    font-weight: 400;
+    max-height: 44px;
+    overflow-y: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+figure.kg-card.kg-bookmark-card a.kg-bookmark-container .kg-bookmark-content .kg-bookmark-metadata {
+    display: flex;
     align-items: center;
-    margin: 0 0.75vmin;
+    margin-top: 22px;
+    width: 100%;
+    color: #394047;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
-.gh-author-links a + a:before {
-    display: block;
-    content: "";
-    margin: 0 1.25vmin 0 0;
-    height: 1em;
-    width: 1px;
-    background: rgba(0,0,0,0.3);
-    transform: rotate(20deg);
+figure.kg-card.kg-bookmark-card a.kg-bookmark-container .kg-bookmark-content .kg-bookmark-metadata .kg-bookmark-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
 }
 
-@media (max-width: 700px) {
-    .gh-author-meta {
-        font-size: 1.6rem;
-    }
+figure.kg-card.kg-bookmark-card a.kg-bookmark-container .kg-bookmark-content .kg-bookmark-metadata .kg-bookmark-author {
+    display: inline;
+}
+
+
+figure.kg-card.kg-bookmark-card a.kg-bookmark-container .kg-bookmark-thumbnail {
+    position: relative;
+    flex-grow: 1;
+    min-width: 33%;
+}
+
+figure.kg-card.kg-bookmark-card a.kg-bookmark-container .kg-bookmark-thumbnail img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 4px 4px 0;
+}
+
+figure.kg-card.kg-image-card.kg-width-full {
+    height: 60vh;
+}
+
+figure.kg-card.kg-image-card.kg-width-full img {
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    height: 60vh;
+    object-fit: cover;
+}
+
+/* Title Post */
+
+.gh-header.gh-canvas.gh-title {
+    text-align: center;
+    margin: .85rem 0;
+    font-variant-caps: small-caps;
+}
+
+.gh-header.gh-canvas.gh-title * {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: initial;
+}
+
+.gh-header.gh-canvas.gh-title h1 {
+    margin: 0 0;
+}
+
+
+div.cover-title {
+    display: inline-flex;
+    /* position: relative; */
+    cursor: pointer;
+    width: 100vw;
+    height: 70vh;
+    position: absolute;
+    left: 0;
+    color: #fff;
+}
+
+div.cover-title header {
+    display: inline-block;
+    /* font-size: 4em; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+}
+
+div.cover-title .black-cover {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    /* width: 100vw; */
+    /* height: 70vh; */
+    position: absolute;
+}
+
+div.cover-title img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+div.cover-title-container {
+    height: 70vh;
+}
+
+header img.gh-author-image {
+    width: 6rem;
+    height: 6rem;
+    margin: auto;
+}
+
+footer {
+    margin: 6rem 0 0 0;
+}
+
+.gh-post-upgrade-cta {
+    margin: 3rem 0 0 0;
+}
+
+.gh-head-actions a {
+    padding-inline: 1rem;
+    text-decoration: none;
+}
+.gh-head-actions {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 1rem;
+}
+
+.gh-head-actions svg {
+    height: 1rem;
+    width: 1rem;
+}
+
+a:focus {
+    outline: 2px solid var(--ghost-accent-color);
 }
